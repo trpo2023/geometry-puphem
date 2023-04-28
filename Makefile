@@ -35,9 +35,11 @@ $(APP_PATH): $(APP_OBJECTS) $(LIB_PATH)
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 
 $(LIB_PATH): $(LIB_OBJECTS)
+	mkdir -p $(dir $@)
 	ar rcs $@ $^
 
 $(OBJ_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
 	$(CC) -c $(CFLAGS) $< -o $@ 
 
 .PHONY: run clean test run_test
@@ -56,4 +58,4 @@ clean:
 test: $(TEST_PATH)
 
 $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH)
-	$(CC) $(CFLAGS) $^ -o $@ -lm
+	$(CC) $(CFLAGS) $^ -o $@ -lm. 

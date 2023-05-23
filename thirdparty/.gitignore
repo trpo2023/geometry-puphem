@@ -1,0 +1,8 @@
+*.o
+*.a
+*.d
+*.out
+*.swp
+.vscode
+*.exe
+*.txt
